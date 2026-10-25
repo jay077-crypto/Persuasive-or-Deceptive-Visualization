@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Project 2 Report</title>
+    <style>
+      :root {
+        --color-neutral-95: hsl(220 10% 95%);
+        --color-neutral-90: hsl(220 10% 90%);
+        --color-neutral-80: hsl(220 10% 80%);
+        --color-neutral-70: hsl(220 10% 70%);
+        --color-neutral-60: hsl(220 10% 60%);
+        --color-neutral-50: hsl(220 10% 50%);
+        --color-neutral-40: hsl(220 10% 40%);
+        --color-neutral-30: hsl(220 10% 30%);
+        --color-neutral-20: hsl(220 10% 20%);
+        --color-neutral-10: hsl(220 10% 10%);
+      }
+
+      html {
+        font: 100%/1.5 system-ui;
+        counter-reset: figure;
+        background: var(--color-neutral-95);
+        max-width: min(75vw, 80em);
+        margin: 0 auto;
+      }
+
+      /* Headings */
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        line-height: 1.1;
+        font-weight: 600;
+        text-wrap: balance;
+      }
+
+      h1,
+      h2 {
+        border-bottom: 1px solid var(--color-neutral-80);
+        padding-bottom: 0.2em;
+      }
+
+      h1 {
+        margin-block: 1em 0.5rem;
+        font-size: clamp(2.5em, 150% + 2vh + 2vw, 10vmin);
+        font-weight: 800;
+
+        small {
+          display: block;
+          width: fit-content;
+          padding: 0.2em 0.5em;
+          margin-inline: auto;
+          color: white;
+          background: var(--color-neutral-40);
+          font-size: 40%;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+      }
+
+      h2 {
+        font-size: 180%;
+        color: var(--color-neutral-30);
+      }
+
+      h3 {
+        font-size: 130%;
+      }
+
+      /* Lists */
+
+      ul,
+      ol {
+        padding-inline-start: 2em;
+      }
+
+      li {
+        &::marker {
+          color: var(--color-neutral-40);
+        }
+
+        + li {
+          margin-top: 0.2em;
+        }
+      }
+
+      /* Sectioning elements */
+
+      header {
+        padding-block: 1em;
+        text-align: center;
+      }
+
+      main {
+        background: white;
+        color: var(--color-neutral-20);
+        border-radius: 1rem;
+        padding: 0.1rem 2rem;
+      }
+
+      /* Figures */
+
+      figure {
+        margin: 1em 0;
+        padding: 0.5rem;
+        margin-inline: -0.5em;
+        border: 1px solid var(--color-neutral-80);
+        box-shadow: 0 0.1em 0.2em var(--color-neutral-95);
+        text-align: center;
+        background: white;
+
+        > figcaption {
+          font: 500 75% var(--font-sans);
+          background: var(--color-neutral-95);
+          padding: 0.5rem;
+          margin: -0.5rem;
+          margin-top: 0.5rem;
+          counter-increment: figure;
+          text-align: left;
+
+          &::before {
+            content: 'Figure ' counter(figure) ': ';
+            font-weight: bold;
+            color: var(--color-neutral-40);
+          }
+
+          a:not(:hover, :focus, :active) {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-color: color-mix(
+              in lab,
+              currentColor,
+              transparent 70%
+            );
+          }
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        Persuasive or Deceptive Visualization
+      </h1>
+
+      <p><strong>Jason Yu</strong> — <em>jay077@ucsd.edu</em></p>
+    </header>
+
+    <main>
+      <h2>Proposition: The United States is making substantial progress toward a renewable energy transition.</h2>
+      <h4>The data comes from the IMF Climate Change Indicators Dashboard’s Renewable Energy dataset. These visualizations compare wind, solar, and oil in the United States. Energy values are converted to terawatt-hours (TWh).</h4>
+
+      <section>
+        <h3>FOR the Proposition</h3>
+
+        <figure>
+          <img src="p1.png" alt="" width="1000" height="500"/>
+          <figcaption>Wind and solar energy have grown substantially in the United States.</figcaption>
+        </figure>
+
+        <figure>
+          <img src="p2.png" alt="" width="1000" height="500"/>
+          <figcaption>Wind and solar generation rose from 0.22% of fossil-fuel generation in 2000 to 23.2% in 2022.</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+
+        <ul>
+          <li>I focused on wind and solar to highlight the development of renewable energy. However, excluding fossil fuels makes it harder to judge their importance in the overall energy system.</li>
+          <li>Showing percentage growth makes the increase look especially impressive. A small starting value can produce a large percentage increase, even when the absolute amount remains relatively small.</li>
+          <li>Clear colors and annotations direct attention to renewable energy growth. Together, these choices encourage an optimistic interpretation of the transition.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>AGAINST the Proposition</h3>
+
+        <figure>
+          <img src="p3.png" alt="" width="1000" height="500"/>
+          <figcaption>In 2022, fossil fuels stil generated 4.3 times as much electricity as wind and solar combined</figcaption>
+        </figure>
+
+        <figure>
+          <img src="p4.png" alt="" width="1000" height="500"/>
+          <figcaption>U.S. fossil-fuel electricity generation fel by only 6.5% over 22 years.</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+
+        <ul>
+          <li>I included oil to provide context that was missing from the first set. This allows viewers to compare renewable energy growth with fossil fuel.</li>
+          <li>Using values in TWh shows the size of the energy gap, rather than emphasizing percentage growth from a small starting point.</li>
+          
+        </ul>
+      </section>
+
+      <section>
+        <h2>Final Reflection</h2>
+
+        <p>I lean toward the second set because it shows that fossil-fuel generation remained large despite the growth of wind and solar. The first set of data presents the information in a selective manner. It highlights the growth in wind and solar power but omits the absolute scale of electricity generation from fossil fuels. Its persuasive headline and emphasis on the rising share may lead readers to overestimate the extent to which the United States has reduced its reliance on fossil fuels.</p>
+      </section>
+    </main>
+  </body>
+</html>
